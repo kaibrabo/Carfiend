@@ -1,27 +1,28 @@
-<header>
-
-    <h3>
-        <i class="material-icons">vertical_align_top</i>
-        TD
-        <i class="material-icons">vertical_align_bottom</i>
-    </h3>
-
-    <div class="login">
-        <%= link_to "Sign up" %> |
-        <%= link_to "Log in" %>
-        <i class="material-icons">verified_user</i>
-    </div>
-
-</header>
-
-<navbar>
-<!--  -->
-</navbar>
-
 <body class="landing_body">
+    <header class="landing_header">
+
+        <div class="login">
+            <%= link_to "Sign up" %> |
+            <%= link_to "Log in" %>
+            <i class="material-icons">verified_user</i>
+        </div>
+        <h4>
+            <i class="material-icons">directions_car</i>
+            Carthusiast
+        </h4>
+
+
+    </header>
+
     <div>
-        <h3>The new way to</h3>
-        <h3><strong>Buy & Sell</strong></h3>
+        <div id="landing_img">
+            <%= image_tag("car_landing.png") %>
+        </div>
+
+        <div class="landing_motto">
+            <p>The new way for gearheads to</p>
+            <p><strong>CONNECT</strong></p>
+        </div>
     </div>
 
 </body>
