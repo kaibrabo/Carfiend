@@ -37,8 +37,14 @@ gem 'jbuilder', '~> 2.5'
 gem 'materialize-sass'
 gem 'material_icons'
 
+# Figaro ENV
+gem 'figaro'
+
 # User Authentication
 gem 'devise'
+
+# Facebook Authentication
+gem 'omniauth-facebook'
 
 
 group :development, :test do

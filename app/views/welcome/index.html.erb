@@ -2,8 +2,8 @@
     <header class="landing_header">
 
         <div class="login">
-            <%= link_to "Sign up" %> |
-            <%= link_to "Log in" %>
+            <%= link_to "Sign up", new_user_registration_path %> |
+            <%= link_to "Log in", new_user_session_path %>
             <i class="material-icons">verified_user</i>
         </div>
         <h4>
@@ -23,6 +23,13 @@
             <p>The new way for gearheads to</p>
             <p><strong>CONNECT</strong></p>
         </div>
+
+        <% unless current_user %>
+            <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+        <% else %>
+            <%= current_user[:name] %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% end %>
     </div>
 
 </body>
