@@ -43,6 +43,7 @@ gem 'figaro'
 # User Authentication
 gem 'devise'
 
+
 # Facebook Authentication
 gem 'omniauth-facebook'
 

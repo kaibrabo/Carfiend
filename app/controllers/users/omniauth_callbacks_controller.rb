@@ -5,6 +5,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         if @user.persisted?
             sign_in_and_redirect @user
             set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+            p @user
         else
             session["devise.facebook_data"] = request.env["omniauth.auth"]
             redirect_to new_user_registration_url
@@ -22,6 +23,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         if @user.persisted?
             flash[:notice] = i18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
             sign_in_and_redirect @user, event: :authentication
+            p @user
         else
             session['devise.google_data'] = request.env['omniauth.auth'].except(:extra)
             redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")

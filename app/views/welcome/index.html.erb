@@ -2,9 +2,13 @@
     <header class="landing_header">
 
         <div class="login">
-            <%= link_to "Sign up", new_user_registration_path %> |
-            <%= link_to "Log in", new_user_session_path %>
-            <i class="material-icons">verified_user</i>
+            <% unless current_user %>
+                <%= link_to "Sign up", new_user_registration_path %> |
+                <%= link_to "Log in", new_user_session_path %>
+            <% else %>
+                <%= current_user[:email] %> | 
+                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+            <% end %>
         </div>
         <h4>
             <i class="material-icons">directions_car</i>
@@ -13,6 +17,8 @@
 
 
     </header>
+
+    <hr />
 
     <div>
         <div id="landing_img">
@@ -25,20 +31,21 @@
         </div>
 
         <!-- Facebook Log in -->
-        <button class="mdc-button mdc-button--raised secondary-filled-button">
+        <!-- <button class="mdc-button mdc-button--raised secondary-filled-button">
             <% unless current_user %>
                 <%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path %>
             <% else %>
                 <%= current_user[:name] %>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
             <% end %>
-        </button>
+        </button> -->
 
         <!-- Google Log in -->
-        <button class="mdc-button--raised">
+        <!-- <button class="mdc-button--raised">
             <%= link_to "Sign up with Google", user_google_oauth2_omniauth_authorize_path %>
-        </button>
+        </button> -->
     </div>
+    <hr />
 
 </body>
 
