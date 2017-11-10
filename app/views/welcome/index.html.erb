@@ -6,7 +6,7 @@
                 <%= link_to "Sign up", new_user_registration_path %> |
                 <%= link_to "Log in", new_user_session_path %>
             <% else %>
-                <%= current_user[:email] %> | 
+                <%= current_user[:email] %> |
                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
             <% end %>
         </div>
@@ -15,6 +15,11 @@
             Carfiend
         </h4>
 
+        <!-- users -->
+        <%= link_to "Find Users" %> |
+        <!-- topics -->
+        <%= link_to "Create New Topic", new_topic_path %> |
+        <%= link_to "Topics", topics_path %>
 
     </header>
 

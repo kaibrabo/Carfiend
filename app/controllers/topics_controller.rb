@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
         # @topics = Topic.all
     end
     #
-    # def create
-    #     render plain: params[:topic].inspect
-    # end
+    def create
+        render plain: params[:topic].inspect
+    end
 end
