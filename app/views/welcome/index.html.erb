@@ -15,41 +15,60 @@
             Carfiend
         </h4>
 
-        <!-- users -->
-        <%= link_to "Find Users" %> |
-        <!-- topics -->
-        <%= link_to "Create New Topic", new_topic_path %> |
-        <%= link_to "Topics", topics_path %>
-
+        <!-- Current User Session/Guests can't view nav -->
+        <% if current_user %>
+            <!-- users -->
+            <%= link_to "Find Users" %> |
+            <!-- topics -->
+            <%= link_to "Create New Topic", new_topic_path %> |
+            <%= link_to "Topics", topics_path %>
+            <!-- Search Bar -->
+            <!-- <%= form_tag(topics_path) do %>
+                <%= text_field_tag :term %>
+                <%= submit_tag 'Search' %>
+            <% end %> -->
+        <% end %>
     </header>
 
     <hr />
 
-    <div>
-        <div id="landing_img">
-            <%= image_tag("car_landing.png") %>
-        </div>
-
+    <!-- Guest Intro -->
+    <% unless current_user %>
         <div class="landing_motto">
             <p>The new way for gearheads to</p>
-            <p><strong>CONNECT</strong></p>
+            <h5>CONNECT</h5>
+            <i class="material-icons">important_devices</i>
+            <i class="material-icons">record_voice_over</i>
+            <h5>
+                <%= link_to "Sign up", new_user_registration_path %> |
+                <%= link_to "Log in", new_user_session_path %>
+            </h5>
+
+            <!-- Facebook Log in -->
+            <!-- <button class="mdc-button mdc-button--raised secondary-filled-button">
+                <% unless current_user %>
+                    <%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path %>
+                <% else %>
+                    <%= current_user[:name] %>
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                <% end %>
+            </button> -->
+
+            <!-- Google Log in -->
+            <!-- <button class="mdc-button--raised">
+                <%= link_to "Sign up with Google", user_google_oauth2_omniauth_authorize_path %>
+            </button> -->
+
+            <p>
+                <strong>Carfiend</strong> is the gathering place for Auto enthusiasts from all over the globe.  <br />
+                Cars  are a common interest among every culture, and from the <br />differences in features and styles, comes variety of Automobiles to suit anyone.
+            </p>
         </div>
 
-        <!-- Facebook Log in -->
-        <!-- <button class="mdc-button mdc-button--raised secondary-filled-button">
-            <% unless current_user %>
-                <%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path %>
-            <% else %>
-                <%= current_user[:name] %>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-            <% end %>
-        </button> -->
-
-        <!-- Google Log in -->
-        <!-- <button class="mdc-button--raised">
-            <%= link_to "Sign up with Google", user_google_oauth2_omniauth_authorize_path %>
-        </button> -->
-    </div>
+    <!-- Current User Feed -->
+    <% else %>
+        
+    <% end %>
     <hr />
 
 </body>
@@ -57,5 +76,3 @@
 <footer>
 
 </footer>
-
-<p>Find me in app/views/welcome/index.html.erb</p>

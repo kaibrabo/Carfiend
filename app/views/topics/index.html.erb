@@ -1,0 +1,28 @@
+<h3>
+    Topics List
+</h3>
+
+<%= link_to "Home", root_path %> |
+<%= link_to "Create Topic", new_topic_path %>
+
+<table>
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+
+    <% @topics.each do |topic| %>
+        <tr>
+            <td>
+                <%= link_to(topic_path(topic)) do %>
+                    <strong><%= topic.title %></strong>
+                <% end %>
+            </td>
+            <td><%= topic.text %></td>
+        </tr>
+    <% end %>
+</table>

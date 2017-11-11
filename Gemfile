@@ -43,6 +43,8 @@ gem 'figaro'
 # User Authentication
 gem 'devise'
 
+# Image upload
+gem 'paperclip'
 
 # Facebook Authentication
 gem 'omniauth-facebook'

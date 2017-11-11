@@ -1,0 +1,32 @@
+<%= form_with(model: @topic) do |form| %>
+    <% if @topic.errors.any? %>
+        <div>
+            <h4>
+                <%= pluralize(@topic.errors.count, "error") %>
+                prohibited this Topic from being saved:
+            </h4>
+            <ul>
+                <% @topic.errors.full_messages.each do |msg| %>
+                    <li>
+                        - <%= msg %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <p>
+        <%= form.label :title %> <br />
+        <%= form.text_field :title %>
+    </p>
+
+    <p>
+        <%= form.label :text %> <br />
+        <%= form.text_area :text %>
+    </p>
+
+    <p>
+        <%= form.submit %> | <%= link_to "Cancel", topics_path %>
+    </p>
+
+<% end %>
