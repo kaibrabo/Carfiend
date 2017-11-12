@@ -1,0 +1,11 @@
+<%= link_to "Back to Topic", :back %> |
+<%= link_to "Edit Post", edit_post_path(@post) %> |
+<%= link_to "Delete Post", method: :delete, data: { confirm: "Are you sure?"} %>
+<div class="row">
+    <div class="post_image">
+        <%= image_tag @post.image.url(:medium) %>
+    </div>
+    <p>
+        <%= @post.caption %>
+    </p>
+</div>
