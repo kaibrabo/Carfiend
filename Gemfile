@@ -45,6 +45,7 @@ gem 'devise'
 
 # Image upload
 gem 'paperclip'
+gem 'simple_form'
 
 # Facebook Authentication
 gem 'omniauth-facebook'

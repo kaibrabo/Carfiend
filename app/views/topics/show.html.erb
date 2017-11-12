@@ -11,4 +11,16 @@
     <strong>Description:</strong>
     <%= @topic.text %>
 </p>
- 
+
+<div>
+    <p>
+        <strong>
+            Posts:
+        </strong>
+    </p>
+    <br />
+    <%= link_to "Add New Post", new_post_path %>
+
+    <!-- Render Posts in separate partial file -->
+    <!-- <%= render "posts#index" %> -->
+</div>
